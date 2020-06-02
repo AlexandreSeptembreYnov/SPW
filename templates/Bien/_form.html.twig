@@ -1,0 +1,25 @@
+{{ form_start(form) }}
+<div class="row">
+  <div class="col-md-4">{{ form_row(form.superficie) }}</div>
+  <div class="col-md-4">{{ form_row(form.prixmin) }}</div>
+</div>
+<div class="row">
+  <div class="col-md-2">{{ form_row(form.nbpieces) }}</div>
+  <div class="col-md-2">{{ form_row(form.type) }}</div>
+  <div class="col-md-5">{{ form_row(form.description) }}</div>
+</div>
+<div class="row">
+  <div class="col-md-1">{{ form_row(form.jardin) }}</div>
+  <div class="col-md-1">{{ form_row(form.cave) }}</div>
+  <div class="col-md-1">{{ form_row(form.ceillier) }}</div>
+  <div class="col-md-1">{{ form_row(form.loggia) }}</div>
+  <div class="col-md-1">{{ form_row(form.garage) }}</div>
+  <div class="col-md-1">{{ form_row(form.terrasse) }}</div>
+  <div class="col-md-1">{{ form_row(form.verranda) }}</div>
+</div>
+<div class="row">
+  <div class="col-md-5">{{ form_row(form.address) }}</div>
+</div>
+{{ form_widget(form) }}
+<button class="btn btn-primary">{{ button|default('Enregistrer') }}</button>
+{{ form_end(form) }}

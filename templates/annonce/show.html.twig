@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title annonce.titre %}
+{% block body %}
+<div class="container-mt-4">
+    <div class="row">
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-4">
+            <h1>{{ annonce.titre }}</h1>
+            <h2>{{ annonce.bien.NbPieces }} pieces - {{ annonce.bien.Superficie }}m²</h2>
+            <div class="'text-primary">{{ annonce.bien.PrixMin }}€</div>
+            <a href=""><button class="button btn-primary">proposer une offre</button></a>
+            <button class="button btn-primary">ajouter au favoris</button>
+        </div>
+        <div class="container mt-4">
+            <p>
+                {{ annonce.bien.description | nl2br }}
+            </p>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h2>Caractéristiques</h2>
+                    <table class="table table-striped">
+                        <tr>
+                            <td>Surface habitable</td>
+                            <td>{{ annonce.bien.superficie }} m²</td>
+                        </tr>
+                        <tr>
+                            <td>Pièces</td>
+                            <td>{{ annonce.bien.nbpieces }}</td>
+                        </tr>
+                        <tr>
+                            <td>Type</td>
+                            <td>{{ annonce.bien.type }}</td>
+                        </tr>
+                        <tr>
+                            <td>jardin</td>
+                            <td>{% if annonce.bien.jardin == 1 %}
+                                oui
+                                {% endif %}
+                                {% if annonce.bien.jardin == 0 %}
+                                non
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>cave</td>
+                            <td>{% if annonce.bien.cave == 1 %}
+                                oui
+                                {% endif %}
+                                {% if annonce.bien.cave == 0 %}
+                                non
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ceillier</td>
+                            <td>{% if annonce.bien.ceillier == 1 %}
+                                oui
+                                {% endif %}
+                                {% if annonce.bien.ceillier == 0 %}
+                                non
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>loggia</td>
+                            <td>{% if annonce.bien.loggia == 1 %}
+                                oui
+                                {% endif %}
+                                {% if annonce.bien.loggia == 0 %}
+                                non
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>terrasse</td>
+                            <td>{% if annonce.bien.terrasse == 1 %}
+                                oui
+                                {% endif %}
+                                {% if annonce.bien.terrasse == 0 %}
+                                non
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>garage</td>
+                            <td>{% if annonce.bien.garage == 1 %}
+                                oui
+                                {% endif %}
+                                {% if annonce.bien.garage == 0 %}
+                                non
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>verranda</td>
+                            <td>{% if annonce.bien.verranda == 1 %}
+                                oui
+                                {% endif %}
+                                {% if annonce.bien.verranda == 0 %}
+                                non
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

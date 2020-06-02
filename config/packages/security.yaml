@@ -1,0 +1,53 @@
+security:
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory:
+            memory:
+                users:
+                    test:
+                        password: test
+                        roles: ROLE_USER
+                    tests:
+                        password: test
+                        roles: ROLE_SELLER
+            #entity:
+             #   class: App\Entity\Client
+              #  property: email
+        # used to reload user from session & other features (e.g. switch_user)
+    #encoders is not plaintext is sha256 change in vendor
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+           # provider: users
+       #     form_login:
+            http_basic: true
+
+             #   check_path: login
+            #logout:
+             #   path: /logout
+             #   target: /
+         #   guard:
+          #      authenticators:
+            #      - App\Security\LoginFormAuthenticator
+  #  role_hierarchy:
+  #      ROLE_ADMIN:       ROLE_USER
+    #    ROLE_: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+   #    - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/profile, roles: ROLE_USER }
+    #    - { path: ^/vendeur, roles: ROLE_SELLER}

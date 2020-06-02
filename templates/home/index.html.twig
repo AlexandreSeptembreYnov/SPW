@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block title 'Stephanplaze' %}
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1>Stephi Place Sales </h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda aut cumque dolore error expedita itaque iure iusto magni, molestiae numquam omnis provident quae repellat sint soluta tempora unde voluptate voluptatibus.</p>
+<div class="jumbotron">
+    <div class="container">
+        {{ form_start(form) }}
+        <div class="form-row align-items-end">
+            <div class="col">
+                {{ form_row(form.minSurface) }}
+            </div>
+            <div class="col">
+                {{ form_row(form.maxPrice) }}
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <button class="btn btn-primary">Rechercher</button>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>
+    </div>
+    <div class="container">
+        <h2>Les derniers Annonces</h2>
+        <div class="row flex">
+            {% for Annonce in Annonces %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path('Annonce.show', {id: Annonce.id, slug: Annonce.slug}) }}">{{ Annonce.titre }}</a>
+                            </h5>
+                            <p class="card-text">{{ Annonce.bien.address }} </p>
+                            <div class="text-primary" style="font-weight: bold;font-size: 2rem;">{{ Annonce.bien.PrixMin }} €</div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pagination">
+            {{ knp_pagination_render(Annonces) }}
+        </div>
+    </div>
+{% endblock %}
